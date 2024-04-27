@@ -10,7 +10,7 @@ class Location {
 open class Human {
   name: String
   location: Location
-  height: Int? (this == null || this > 0 && this < 3000) = 2000
+  height: Int(this > 0 && this < 3000)? = 2000 // or: Int(isBetween(1, 2999))?
   languages: Listing<String>
 }
 
