@@ -1,0 +1,11 @@
+/// Java club meetings configuration
+amends "pkl:DocPackageInfo"
+
+name = "ua.lviv"
+version = "1.2.3"
+importUri = "modulepath:pkl/"
+authors {
+  "zoologist@example.com"
+}
+sourceCode = "https://www.example.com/my/source"
+issueTracker = "https://www.example.com/my/issues"

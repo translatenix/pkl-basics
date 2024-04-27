@@ -1,0 +1,24 @@
+name = "This is a name"
+duration = "5min"
+drinks {
+  "coffee"
+  "tea"
+  "wine"
+}
+
+dictionary {
+  ["One"] = "The first"
+  ["Two"] = "The second"
+  ["Three"] = "The third"
+}
+
+third = dictionary["Three"]
+
+hidden  city {
+  country = "Ukraine"
+  name = "CityName"
+}
+
+kyiv = (city) {
+  name = "Kyiv"
+}

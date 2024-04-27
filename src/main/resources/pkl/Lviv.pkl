@@ -1,0 +1,7 @@
+module ua.lviv.Lviv
+import "MeetingClub.pkl"
+
+location = new MeetingClub.Location {
+  country = "Ukraine"
+  city = "Lviv"
+}

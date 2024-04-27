@@ -1,0 +1,31 @@
+/// Definition of any club with humans to discuss something
+@ModuleInfo { minPklVersion = "0.25.1" }
+open module ua.lviv.MeetingClub
+
+class Location {
+  country: String
+  city: String
+}
+
+open class Human {
+  name: String
+  location: Location
+  height: Int? (this == null || this > 0 && this < 3000) = 2000
+  languages: Listing<String>
+}
+
+class JavaEngineer extends Human {
+  coffeCapacity: Int = 5
+  memoryCapacity:DataSize = 1000.mib.toUnit("b")
+}
+
+class Meeting {
+  week: Int
+  topic: String
+  attendees: Listing<Human>(isDistinctBy((human) -> human.name))
+  speaker: JavaEngineer
+  organizedBy: Human
+  duration: Duration(isBetween(30.min, 3.h))
+}
+
+meetings: Listing<Meeting>

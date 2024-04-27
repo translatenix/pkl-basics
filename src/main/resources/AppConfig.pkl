@@ -1,0 +1,12 @@
+module ua.lviv.javaclub.pklspringjavaclub.AppConfig
+
+server: Server
+
+class Server {
+  endpoints: Listing<Endpoint>
+}
+
+class Endpoint {
+  name: String
+  port: UInt16
+}

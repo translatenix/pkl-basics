@@ -1,0 +1,54 @@
+module ua.lviv.JavaClub
+extends "MeetingClub.pkl"
+import "Lviv.pkl"
+
+hidden lviv: Location = Lviv.location
+
+hidden superman = new JavaEngineer {
+  name = "superman"
+  location = lviv
+}
+
+function buddy(buddyName: String) : JavaEngineer =
+  new JavaEngineer {
+    name = buddyName
+    location = lviv
+  }
+
+meetings = new Listing<Meeting> {
+  default {
+    organizedBy = superman
+  }
+  new {
+    week = 199
+    topic = "pkl lang"
+    attendees {
+      buddy("John")
+      buddy("Ihor")
+    }
+    speaker {
+      name = "Bamboo"
+      location = lviv
+    }
+    duration = 59.min
+  }
+  new {
+    topic = "java 33"
+    attendees {
+      buddy("John")
+      buddy("Ihor")
+    }
+    speaker {
+      name = "Homer"
+      location = lviv
+    }
+    duration = 59.min
+  }
+}
+.toList()
+.mapIndexed((index, meeting) -> (meeting) {
+  week = if (index == 0) meeting.week else meetings[index-1].week + 1
+})
+.toListing();
+
+secondTopic = "The Second meeting is \(meetings[1].topic)"
